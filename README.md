@@ -2,6 +2,8 @@
 
 A fast-paced, customizable trivia game built with React, TypeScript, and Tailwind CSS. Features include a question board, animated transitions, AI-powered hints, and optional minimal mode for lightweight performance.
 
+🕹️ [Play the Game](https://akiz-ivanov.github.io/trivia-game-v2/)
+
 ## ✨ Features
 
 - 🎯 Trivia categories, difficulty, and question count selection
@@ -23,7 +25,7 @@ A fast-paced, customizable trivia game built with React, TypeScript, and Tailwin
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/your-username/trivia-flair.git
-cd trivia-flair
+git clone https://github.com/Akiz-Ivanov/trivia-game-v2
+cd trivia-game-v2
 npm install
 npm run dev
