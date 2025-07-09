@@ -12,4 +12,14 @@ export default defineConfig({
     },
   },
   base: '/trivia-game-v2/',
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          shadcn: ['@radix-ui/react-dialog', '@radix-ui/react-select'],
+        },
+      },
+    },
+  }
 })

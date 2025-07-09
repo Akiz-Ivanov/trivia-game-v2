@@ -92,6 +92,7 @@ const Form = ({
                             <img
                                 src={cherryBlossom}
                                 alt=""
+                                fetchPriority="high"
                                 className="absolute top-[-60%] right-0 w-40 opacity-30 hover:opacity-100
                             transition-opacity duration-500 z-[1]"
                             />
