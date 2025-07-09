@@ -53,7 +53,7 @@ function AccordionContent({
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm outline-none focus:ring-2 focus:ring-white focus:ring-offset-background rounded-2xl
+      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-background rounded-2xl
       transition-shadow duration-200 ease-in-out"
       {...props}
     >
