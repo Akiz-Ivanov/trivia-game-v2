@@ -11,5 +11,5 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  base: "trivia-game-v2"
+  base: '/trivia-game-v2/',
 })
