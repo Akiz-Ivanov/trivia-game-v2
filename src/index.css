@@ -212,11 +212,13 @@
       url('/src/assets/backgrounds/scribble.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transform: translateZ(0);
 
     background-size: 150%;
     animation: zoomDrift 150s linear infinite;
+    will-change: transform;
   }
 
   main {
