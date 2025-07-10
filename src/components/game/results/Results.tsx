@@ -43,10 +43,12 @@ const Results = ({ score, numOfQuestions, resetGame }: ResultsProps): React.JSX.
         <Card
             role="region"
             aria-label="Quiz results"
-            className="side-glow
-                gap-3 px-8 py-4 relative
-                shadow-[0_8px_32px_rgba(0,0,0,0.2)] 
-                text-[1.2rem] max-w-[30rem]"
+            className={cn(
+                "gap-3 px-8 py-4 relative",
+                "shadow-[0_8px_32px_rgba(0,0,0,0.2)]", 
+                "text-[1.2rem] max-w-[30rem]",
+                minimalMode.backgroundGlow && "side-glow"
+                )}
         >
             <p aria-live="polite" className="sr-only">
                 You answered {score} out of {numOfQuestions} questions correctly. That's {scorePercentage.toFixed(0)}%. {message}

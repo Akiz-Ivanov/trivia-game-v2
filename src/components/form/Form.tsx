@@ -32,13 +32,17 @@ const Form = ({
         <div className="relative overflow-visible xs:rounded-xl">
 
             {/* ====== Side Glow ====== */}
-            <div className="absolute inset-0 translate-x-[-100%]
-                        bg-[radial-gradient(circle_at_150%_50%,rgba(0,195,255,0.4),transparent_45%)]"
-            />
+            {minimalMode.backgroundGlow && (
+                <>
+                    <div className="absolute inset-0 translate-x-[-100%]
+                 bg-[radial-gradient(circle_at_150%_50%,rgba(0,195,255,0.4),transparent_45%)]"
+                    />
 
-            <div className="absolute inset-0 translate-x-full
-                        bg-[radial-gradient(circle_at_-50%_50%,rgba(214,0,186,0.6),transparent_45%)]"
-            />
+                    <div className="absolute inset-0 translate-x-full
+            bg-[radial-gradient(circle_at_-50%_50%,rgba(214,0,186,0.6),transparent_45%)]"
+                    />
+                </>
+            )}
 
             {/* ====== Form ====== */}
             <Card
