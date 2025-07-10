@@ -8,6 +8,7 @@ export function MinimalModeProvider({ children }: { children: React.ReactNode })
         animations: true,
         illustrations: true,
         backgroundPattern: true,
+        backgroundGlow: true,
         sound: true
     })
 
@@ -39,13 +40,21 @@ export function MinimalModeProvider({ children }: { children: React.ReactNode })
         }))
     }
 
+    const toggleBackgroundGlow = () => {
+        setMinimalMode(prevMode => ({
+            ...prevMode,
+            backgroundGlow: !prevMode.backgroundGlow
+        }))
+    }
+
     return (
         <MinimalModeContext.Provider value={{
             minimalMode,
             toggleAnimations,
             toggleIllustrations,
-            toggleSound,
-            toggleBackgroundPattern
+            toggleBackgroundPattern,
+            toggleBackgroundGlow,
+            toggleSound
         }}>
             {children}
         </MinimalModeContext.Provider>

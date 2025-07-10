@@ -121,17 +121,8 @@ export default function QuizCard({
     })
 
     return (
-        <Card
-            key={questionData.id}
-            asMotion={true}
-            className="game-card
-                    gap-3-16 text-15-18
-                    px-16-64 py-6 md:p-6"
-                    
-            style={{
-                backgroundImage: bgUrl && minimalMode.illustrations ? `url(${bgUrl})` : "none",
-                willChange: shouldAnimate ? 'transform, opacity' : 'auto'
-            }}
+        <motion.div
+            className="relative overflow-visible xs:rounded-2xl"
             initial={shouldAnimate ? { opacity: 0 } : undefined}
             animate={shouldAnimate ? { opacity: 1 } : undefined}
             exit={shouldAnimate ? { opacity: 0 } : undefined}
@@ -139,88 +130,118 @@ export default function QuizCard({
                 duration: 0.2,
                 ease: "easeOut"
             } : undefined}
+
         >
-            <p
-                key={selectedAnswer}
-                aria-live="polite"
-                className="sr-only"
+
+            {/* ====== Side Glow ====== */}
+            {minimalMode.backgroundGlow && (
+
+                <div className="pointer-events-none absolute inset-0 -z-10 overflow-visible">
+
+                    <div className="absolute inset-0 translate-x-[-100%]
+                        bg-[radial-gradient(circle_at_150%_50%,rgba(0,195,255,0.4),transparent_45%)]"
+                    />
+
+                    <div className="absolute inset-0 translate-x-full
+                        bg-[radial-gradient(circle_at_-50%_50%,rgba(214,0,186,0.6),transparent_45%)]"
+                    />
+
+                </div>
+            )}
+
+            <Card
+                key={questionData.id}
+                className="game-card
+                    gap-3-16 text-15-18
+                    px-16-64 py-6 md:p-6"
+
+                style={{
+                    backgroundImage: bgUrl && minimalMode.illustrations ? `url(${bgUrl})` : "none",
+                    willChange: shouldAnimate ? 'transform, opacity' : 'auto'
+                }}
             >
-                {selectedAnswer ? (selectedAnswer === questionData.correct_answer ? "Correct answer selected." : "Incorrect answer selected.") : ""}
-            </p>
+                <p
+                    key={selectedAnswer}
+                    aria-live="polite"
+                    className="sr-only"
+                >
+                    {selectedAnswer ? (selectedAnswer === questionData.correct_answer ? "Correct answer selected." : "Incorrect answer selected.") : ""}
+                </p>
 
-            {/* ====== Meta ====== */}
-            <GameMeta
-                category={questionData.category}
-                difficulty={questionData.difficulty}
-                currentQuestionIndex={currentQuestionIndex}
-                numOfQuestions={numOfQuestions}
-            />
+                {/* ====== Meta ====== */}
+                <GameMeta
+                    category={questionData.category}
+                    difficulty={questionData.difficulty}
+                    currentQuestionIndex={currentQuestionIndex}
+                    numOfQuestions={numOfQuestions}
+                />
 
-            {/* ====== Question ====== */}
-            <h2
-                className="game-card__question
+                {/* ====== Question ====== */}
+                <h2
+                    className="game-card__question
                         text-[clamp(1.3rem,2.5vw,1.75rem)]
                         font-bold leading-1.4 mt-6 mb-2 text-balance"
-                id={`question-${questionData.id}`}
-            >
-                {questionData.question}
-            </h2>
+                    id={`question-${questionData.id}`}
+                >
+                    {questionData.question}
+                </h2>
 
-            {/* ====== Answers ====== */}
-            <div
-                role="list"
-                aria-labelledby={`question-${questionData.id}`}
-                aria-describedby="answer-instruction"
-                className="btn-wrapper grid md:grid-cols-2 gap-6 w-full my-4"
-            >
-                {renderAnswers}
-            </div>
+                {/* ====== Answers ====== */}
+                <div
+                    role="list"
+                    aria-labelledby={`question-${questionData.id}`}
+                    aria-describedby="answer-instruction"
+                    className="btn-wrapper grid md:grid-cols-2 gap-6 w-full my-4"
+                >
+                    {renderAnswers}
+                </div>
 
-            <p id="answer-instruction" className="sr-only">
-                Choose one of the answers below.
-            </p>
+                <p id="answer-instruction" className="sr-only">
+                    Choose one of the answers below.
+                </p>
 
-            {/* ====== NextQuestion/ShowResults button ====== */}
-            <RegularButton
-                type="button"
-                onClick={isLastQuestion ? handleShowResults : nextQuestion}
-                disabled={!selectedAnswer}
-                aria-disabled={!selectedAnswer}
-                title={!selectedAnswer ? "Choose an answer to continue" : undefined}
-                ref={nextButtonRef}
-                className={cn(
-                    "inline-flex items-center justify-center px-8 py-3 mt-4 text-white font-semibold text-[1.1rem]",
-                    "rounded-[2rem] border-2 border-white/30 bg-origin-border",
-                    "transition-all duration-300 ease-in-out backdrop-blur-[4px]",
-                    "hover:scale-[1.03] active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]",
-                    "focus-visible:border-none outline-none will-change-transform",
-                    "focus-visible:ring-2 focus-visible:ring-ring",
-                    "focus-visible:ring-offset-2 focus-visible:ring-offset-background",
-                    {
-                        "bg-[linear-gradient(135deg,rgba(0,200,120,0.8),rgba(0,160,80,0.8))] hover:shadow-[0_0_20px_rgba(0,255,180,0.3)] focus-visible:shadow-[0_0_0_4px_rgba(0,195,255,0.3)]": isLastQuestion,
-                        "bg-[linear-gradient(135deg,rgba(0,195,255,0.8),rgba(214,0,186,0.8))] hover:shadow-[0_0_20px_rgba(0,195,255,0.3)] focus-visible:shadow-[0_0_0_4px_rgba(0,195,255,0.3)]": !isLastQuestion,
-                        "cursor-not-allowed opacity-60 bg-white/10 scale-100 shadow-none": !selectedAnswer,
-                    }
-                )}
-            >
-                {isLastQuestion ? (
-                    <>
-                        Show Results <BarChart2 className="icon ml-2" size={20} />
-                    </>
-                ) : (
-                    <>
-                        Next Question <ArrowRight className="icon ml-2" size={20} />
-                    </>
-                )}
-            </RegularButton>
+                {/* ====== NextQuestion/ShowResults button ====== */}
+                <RegularButton
+                    type="button"
+                    onClick={isLastQuestion ? handleShowResults : nextQuestion}
+                    disabled={!selectedAnswer}
+                    aria-disabled={!selectedAnswer}
+                    title={!selectedAnswer ? "Choose an answer to continue" : undefined}
+                    ref={nextButtonRef}
+                    className={cn(
+                        "inline-flex items-center justify-center px-8 py-3 mt-4 text-white font-semibold text-[1.1rem]",
+                        "rounded-[2rem] border-2 border-white/30 bg-origin-border",
+                        "transition-all duration-300 ease-in-out backdrop-blur-[4px]",
+                        "hover:scale-[1.03] active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]",
+                        "focus-visible:border-none outline-none will-change-transform",
+                        "focus-visible:ring-2 focus-visible:ring-ring",
+                        "focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+                        {
+                            "bg-[linear-gradient(135deg,rgba(0,200,120,0.8),rgba(0,160,80,0.8))] hover:shadow-[0_0_20px_rgba(0,255,180,0.3)] focus-visible:shadow-[0_0_0_4px_rgba(0,195,255,0.3)]": isLastQuestion,
+                            "bg-[linear-gradient(135deg,rgba(0,195,255,0.8),rgba(214,0,186,0.8))] hover:shadow-[0_0_20px_rgba(0,195,255,0.3)] focus-visible:shadow-[0_0_0_4px_rgba(0,195,255,0.3)]": !isLastQuestion,
+                            "cursor-not-allowed opacity-60 bg-white/10 scale-100 shadow-none": !selectedAnswer,
+                        }
+                    )}
+                >
+                    {isLastQuestion ? (
+                        <>
+                            Show Results <BarChart2 className="icon ml-2" size={20} />
+                        </>
+                    ) : (
+                        <>
+                            Next Question <ArrowRight className="icon ml-2" size={20} />
+                        </>
+                    )}
+                </RegularButton>
 
-            {/* ====== TriviaAddons ====== */}
-            <TriviaAddons
-                questionData={questionData}
-                selectedAnswer={selectedAnswer}
-                handleFiftyFifty={handleFiftyFifty}
-                removedAnswers={removedAnswers}
-            />
-        </Card>
+                {/* ====== TriviaAddons ====== */}
+                <TriviaAddons
+                    questionData={questionData}
+                    selectedAnswer={selectedAnswer}
+                    handleFiftyFifty={handleFiftyFifty}
+                    removedAnswers={removedAnswers}
+                />
+            </Card>
+        </motion.div>
     )
 }

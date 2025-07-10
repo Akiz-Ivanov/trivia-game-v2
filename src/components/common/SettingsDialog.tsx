@@ -12,9 +12,9 @@ import ToggleSwitch from "./ToggleSwitch"
 
 const SettingsDialog = () => {
 
-    const { minimalMode, toggleAnimations, toggleIllustrations, toggleBackgroundPattern, toggleSound } = useMinimalMode()
+    const { minimalMode, toggleAnimations, toggleIllustrations, toggleBackgroundPattern, toggleBackgroundGlow, toggleSound } = useMinimalMode()
 
-    const { animations, illustrations, backgroundPattern, sound } = minimalMode
+    const { animations, illustrations, backgroundPattern, backgroundGlow, sound } = minimalMode
 
     return (
         <Dialog>
@@ -37,6 +37,7 @@ const SettingsDialog = () => {
                 <ToggleSwitch id="animations-toggle" label="Animations" checked={animations} onChange={toggleAnimations} />
                 <ToggleSwitch id="illustrations-toggle" label="Illustrations" checked={illustrations} onChange={toggleIllustrations} />
                 <ToggleSwitch id="background-pattern-toggle" label="Background" checked={backgroundPattern} onChange={toggleBackgroundPattern} />
+                <ToggleSwitch id="glow-toggle" label="Glow" checked={backgroundGlow} onChange={toggleBackgroundGlow} />
                 <ToggleSwitch id="sound-toggle" label="Sound" checked={sound} onChange={toggleSound} />
             </DialogContent>
         </Dialog>
