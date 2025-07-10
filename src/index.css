@@ -214,11 +214,9 @@
     background-size: cover;
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
-    transform: translateZ(0);
 
     background-size: 150%;
     animation: zoomDrift 150s linear infinite;
-    will-change: transform;
   }
 
   main {
