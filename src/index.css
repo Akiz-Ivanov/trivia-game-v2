@@ -36,6 +36,7 @@
   font-style: normal;
   font-display: swap;
 }
+
 @custom-variant dark (&:is(.dark *));
 
 
@@ -44,19 +45,29 @@
 ===============================*/
 @theme inline {
   --breakpoint-xs: 30rem;
-  
-  --text-15-16: clamp(0.9375rem, 0.9155rem + 0.0939vw, 1rem);       /** From 0.9375rem at 375px to 1rem at 1440px */
-  --text-15-18: clamp(0.9375rem, 0.8715rem + 0.2817vw, 1.125rem);       /** From 0.9375rem at 375px to 1.125rem at 1440px */
-  --text-16-18: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);       /** From 1rem at 375px to 1.125rem at 1440px */
-  --text-18-22: clamp(1.125rem, 1.0282rem + 0.4131vw, 1.4rem);        /** From 1.125rem at 375px to 1.4rem at 1440px */
-  --text-20-24: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);        /** From 1.25rem at 375px to 1.5rem at 1440px */
-  --text-24-36: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem);       /** From 1.5rem at 375px to 2.25rem at 1440px */
 
-  --spacing-3-16: clamp(0.2rem, -0.0817rem + 1.2019vw, 1rem);       /** From 0.2rem at 375px to 1rem at 1440px */
-  --spacing-16-32: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);       /** From 1rem at 375px to 2rem at 1440px */
-  --spacing-16-64: clamp(1rem, -1.8626rem + 12.2137vw, 4rem);       /** From 1rem at 375px to 4rem at 768px */
-  --spacing-16-128: clamp(1rem, -10.6667rem + 38.8889vw, 8rem);       /** From 1rem at 480px to 8rem at 768px */
-  
+  --text-15-16: clamp(0.9375rem, 0.9155rem + 0.0939vw, 1rem);
+  /** From 0.9375rem at 375px to 1rem at 1440px */
+  --text-15-18: clamp(0.9375rem, 0.8715rem + 0.2817vw, 1.125rem);
+  /** From 0.9375rem at 375px to 1.125rem at 1440px */
+  --text-16-18: clamp(1rem, 0.956rem + 0.1878vw, 1.125rem);
+  /** From 1rem at 375px to 1.125rem at 1440px */
+  --text-18-22: clamp(1.125rem, 1.0282rem + 0.4131vw, 1.4rem);
+  /** From 1.125rem at 375px to 1.4rem at 1440px */
+  --text-20-24: clamp(1.25rem, 1.162rem + 0.3756vw, 1.5rem);
+  /** From 1.25rem at 375px to 1.5rem at 1440px */
+  --text-24-36: clamp(1.5rem, 1.2359rem + 1.1268vw, 2.25rem);
+  /** From 1.5rem at 375px to 2.25rem at 1440px */
+
+  --spacing-3-16: clamp(0.2rem, -0.0817rem + 1.2019vw, 1rem);
+  /** From 0.2rem at 375px to 1rem at 1440px */
+  --spacing-16-32: clamp(1rem, 0.6479rem + 1.5023vw, 2rem);
+  /** From 1rem at 375px to 2rem at 1440px */
+  --spacing-16-64: clamp(1rem, -1.8626rem + 12.2137vw, 4rem);
+  /** From 1rem at 375px to 4rem at 768px */
+  --spacing-16-128: clamp(1rem, -10.6667rem + 38.8889vw, 8rem);
+  /** From 1rem at 480px to 8rem at 768px */
+
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -65,7 +76,7 @@
   --radius-aicard: var(--radius-aicard);
 
   --animate-flicker: flicker 2s infinite;
-  
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -138,7 +149,7 @@
   --chart-1: oklch(76.46% 0.151 229.43);
   --chart-2: oklch(59.87% 0.265 335.87);
   --chart-3: oklch(69.6% 0.17 162.48);
-  --chart-4: oklch(76.5% 0.151 229 / 0.7);   
+  --chart-4: oklch(76.5% 0.151 229 / 0.7);
   --chart-5: oklch(63.977% 0.09281 155.827);
 
   --correct-btn: oklch(63.977% 0.09281 155.827);
@@ -212,8 +223,8 @@
       url('/src/assets/backgrounds/scribble.svg');
     background-repeat: no-repeat;
     background-size: cover;
-    backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 
     background-size: 150%;
     animation: zoomDrift 150s linear infinite;
