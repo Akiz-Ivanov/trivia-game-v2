@@ -1,6 +1,5 @@
 import { useMinimalMode } from "@/hooks/useMinimalMode"
 import { Settings } from "lucide-react"
-import { Switch } from "@/components/ui/switch"
 import {
     Dialog,
     DialogContent,
@@ -9,15 +8,18 @@ import {
     DialogDescription,
     DialogTrigger,
 } from "@/components/ui/dialog"
+import ToggleSwitch from "./ToggleSwitch"
 
 const SettingsDialog = () => {
 
-    const { minimalMode, toggleAnimations, toggleIllustrations, toggleSound } = useMinimalMode()
+    const { minimalMode, toggleAnimations, toggleIllustrations, toggleBackgroundPattern, toggleSound } = useMinimalMode()
+
+    const { animations, illustrations, backgroundPattern, sound } = minimalMode
 
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <button 
+                <button
                     type="button"
                     aria-label="Open settings"
                     className="absolute top-4 right-4 z-50 rounded-full"
@@ -25,40 +27,17 @@ const SettingsDialog = () => {
                     <Settings className="size-7 text-accent hover:animate-[spin_1s_ease-in-out] cursor-pointer" />
                 </button>
             </DialogTrigger>
-            <DialogContent  className="flex flex-col gap-6">
+            <DialogContent className="flex flex-col gap-6">
                 <DialogHeader>
-                    <DialogTitle  className="text-center text-18-22">Settings</DialogTitle>
-                    <DialogDescription >
+                    <DialogTitle className="text-center text-18-22">Settings</DialogTitle>
+                    <DialogDescription className="text-center text-sm italic mb-2" >
                         Toggle optional settings to customize your game.
                     </DialogDescription>
                 </DialogHeader>
-                <div className="flex items-center gap-6">
-                    <Switch
-                        id="animations-toggle"
-                        checked={minimalMode.animations}
-                        onCheckedChange={toggleAnimations}
-                        className="scale-135 cursor-pointer"
-                    />
-                    <label htmlFor="animations-toggle">Animations</label>
-                </div>
-                <div className="flex items-center gap-6">
-                    <Switch
-                        id="illustrations-toggle"
-                        checked={minimalMode.illustrations}
-                        onCheckedChange={toggleIllustrations}
-                        className="scale-135 cursor-pointer"
-                    />
-                    <label htmlFor="illustrations-toggle">Illustrations</label>
-                </div>
-                <div className="flex items-center gap-6">
-                    <Switch
-                        id="sound-toggle"
-                        checked={minimalMode.sound}
-                        onCheckedChange={toggleSound}
-                        className="scale-135 cursor-pointer"
-                    />
-                    <label htmlFor="sound-toggle">Sound</label>
-                </div>
+                <ToggleSwitch id="animations-toggle" label="Animations" checked={animations} onChange={toggleAnimations} />
+                <ToggleSwitch id="illustrations-toggle" label="Illustrations" checked={illustrations} onChange={toggleIllustrations} />
+                <ToggleSwitch id="background-pattern-toggle" label="Background" checked={backgroundPattern} onChange={toggleBackgroundPattern} />
+                <ToggleSwitch id="sound-toggle" label="Sound" checked={sound} onChange={toggleSound} />
             </DialogContent>
         </Dialog>
     )

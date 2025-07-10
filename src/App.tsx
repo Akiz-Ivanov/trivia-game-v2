@@ -84,8 +84,8 @@ function App(): React.JSX.Element {
 
   //* ====== Apply minimal mode ====== 
   useEffect(() => {
-    document.body.classList.toggle('minimal-mode-animations', !minimalMode.animations)
-    document.body.classList.toggle('minimal-mode-illustrations', !minimalMode.illustrations)
+    document.body.classList.toggle('minimal-mode-animations', !minimalMode.animations || !minimalMode.backgroundPattern)
+    document.body.classList.toggle('minimal-mode-illustrations', !minimalMode.illustrations || !minimalMode.backgroundPattern)
   }, [minimalMode])
 
   //* ====== Apply sound ======

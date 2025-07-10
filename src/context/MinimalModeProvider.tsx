@@ -7,6 +7,7 @@ export function MinimalModeProvider({ children }: { children: React.ReactNode })
     const [minimalMode, setMinimalMode] = useState<MinimalMode>({
         animations: true,
         illustrations: true,
+        backgroundPattern: true,
         sound: true
     })
 
@@ -24,6 +25,13 @@ export function MinimalModeProvider({ children }: { children: React.ReactNode })
         }))
     }
 
+    const toggleBackgroundPattern = () => {
+        setMinimalMode(prevMode => ({
+            ...prevMode,
+            backgroundPattern: !prevMode.backgroundPattern
+        }))
+    }
+
     const toggleSound = () => {
         setMinimalMode(prevMode => ({
             ...prevMode,
@@ -36,7 +44,8 @@ export function MinimalModeProvider({ children }: { children: React.ReactNode })
             minimalMode,
             toggleAnimations,
             toggleIllustrations,
-            toggleSound
+            toggleSound,
+            toggleBackgroundPattern
         }}>
             {children}
         </MinimalModeContext.Provider>
