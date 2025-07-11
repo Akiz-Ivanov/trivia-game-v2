@@ -10,6 +10,7 @@ import LoadingScreen from './components/common/LoadingScreen'
 import SettingsDialog from './components/common/SettingsDialog'
 import { useMinimalMode } from "@/hooks/useMinimalMode"
 import { useSoundManager } from './hooks/useSoundManager';
+import useHoverDetection from './hooks/useHoverDetection';
 
 //* ====== Types ======
 import type { TriviaQuestion } from './types/trivia-db.types'
@@ -87,6 +88,9 @@ function App(): React.JSX.Element {
     document.body.classList.toggle('minimal-mode-animations', !minimalMode.animations || !minimalMode.backgroundPattern)
     document.body.classList.toggle('minimal-mode-illustrations', !minimalMode.illustrations || !minimalMode.backgroundPattern)
   }, [minimalMode])
+
+  //*====== Apply hover ======
+  useHoverDetection()
 
   //* ====== Apply sound ======
   useSoundManager(minimalMode.sound)

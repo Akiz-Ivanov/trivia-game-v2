@@ -35,11 +35,11 @@ const Form = ({
             {minimalMode.backgroundGlow && (
                 <>
                     <div className="absolute inset-0 translate-x-[-100%]
-                 bg-[radial-gradient(circle_at_150%_50%,rgba(0,195,255,0.4),transparent_45%)]"
+                        bg-[radial-gradient(circle_at_150%_50%,rgba(0,195,255,0.4),transparent_45%)]"
                     />
 
                     <div className="absolute inset-0 translate-x-full
-            bg-[radial-gradient(circle_at_-50%_50%,rgba(214,0,186,0.6),transparent_45%)]"
+                        bg-[radial-gradient(circle_at_-50%_50%,rgba(214,0,186,0.6),transparent_45%)]"
                     />
                 </>
             )}
@@ -68,15 +68,15 @@ const Form = ({
                         <RegularButton
                             type="submit"
                             className="animate-flicker hover:animate-none focus:animate-none
-                                        w-50 cursor-pointer px-4 py-2.5 mx-auto mt-2 
-                                        bg-[linear-gradient(135deg,#00c3ff,#d600ba)] z-999
+                                        w-50 cursor-pointer px-4 py-2.5 mx-auto mt-2  z-999
                                         rounded-full font-semibold border-[3.5px] border-white 
                                         transition-all duration-400 ease-in-out will-change-transform
                                         text-shadow-[1px_1px_2px_oklch(62.3% 0.214 259.815),-1px_-1px_2px_oklch(62.3% 0.214 259.815)] 
                                         text-18-22 outline-none hover:scale-[1.05] 
                                         hover:shadow-[0_0_20px_rgba(0,255,255,0.5),0_0_40px_rgba(255,102,196,0.4)] 
                                         focus:ring-offset-1 focus:ring-offset-background
-                                        focus-visible:ring-ring focus:border-white focus-visible:border-white"
+                                        focus-visible:ring-ring focus:border-white focus-visible:border-white
+                                        animate-angle"                      
                         >
                             Start Game
                         </RegularButton>
