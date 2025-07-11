@@ -121,7 +121,6 @@ export default function QuizCard({
     })
 
     return (
-
         <Card
             key={questionData.id}
             asMotion={true}

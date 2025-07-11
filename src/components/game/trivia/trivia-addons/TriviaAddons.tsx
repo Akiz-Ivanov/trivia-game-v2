@@ -92,9 +92,9 @@ const TriviaAddons = ({
                     onClick={handleAddonClick}
                     disabled={isLoading || hintUsed || infoUsed}
                     aria-label={selectedAnswer ? "Get trivia info from the AI" : "Get hint from the AI"}
-                    className="main-action
+                    className="main-action purple-bg
                         inline-flex items-center justify-center
-                        px-[1.2rem] py-[0.6rem] rounded-xl purple-bg
+                        px-[1.2rem] py-[0.6rem] rounded-xl
                         transition-all duration-300 ease-in-out hover:scale-105
                         will-change-transform border-none text-base
                         active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]
@@ -111,16 +111,16 @@ const TriviaAddons = ({
                     disabled={!!selectedAnswer || isLoading || removedAnswers.length === 2}
                     aria-label="Get two incorrect answers"
                     title="Eliminate two wrong answers"
-                    className="fifty-fifty-btn main-action 
+                    className="fifty-fifty-btn main-action
                         border-2 border-chart-2 text-chart-3
-                        !px-8 py-2 rounded-xl font-bold
+                        !px-8 py-2 rounded-xl font-bold text-base
                         transition-all duration-300 ease-in-out will-change-transform
                         hover:bg-[#ff4fd830] hover:shadow-[0_0_10px_#ff4fd880]
                         active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]
                         focus-visible:ring-2 focus-visible:ring-ring 
                         focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 >
-                    50/50
+                    50 / 50
                 </RegularButton>
             </div>
 
