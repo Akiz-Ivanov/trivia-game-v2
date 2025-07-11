@@ -85,8 +85,8 @@ const TriviaAddons = ({
     const infoUsed = !!(selectedAnswer && gameAddons.info)
 
     return (
-        <div className="game-addons-container flex flex-col items-center justify-center gap-3-16 py-2">
-            <div className='flex items-center justify-center gap-8'>
+        <div className="game-addons-container flex flex-col items-center justify-center gap-3-16 py-2 w-full xs:w-auto">
+            <div className='flex items-center justify-center gap-8 w-full'>
                 <RegularButton
                     type="button"
                     onClick={handleAddonClick}
@@ -112,8 +112,8 @@ const TriviaAddons = ({
                     aria-label="Get two incorrect answers"
                     title="Eliminate two wrong answers"
                     className="fifty-fifty-btn main-action
-                        border-2 border-chart-2 text-chart-3
-                        !px-8 py-2 rounded-xl font-bold text-base
+                        border-2 border-chart-2 text-chart-3 !px-6
+                        xs:!px-8 py-2 rounded-xl font-bold text-base
                         transition-all duration-300 ease-in-out will-change-transform
                         hover:bg-[#ff4fd830] hover:shadow-[0_0_10px_#ff4fd880]
                         active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]

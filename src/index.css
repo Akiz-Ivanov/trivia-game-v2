@@ -338,7 +338,7 @@
     z-index: -1;
   }
 
-  .fifty-fifty-btn:hover::before {
+  .hover-supported .fifty-fifty-btn:hover::before {
     opacity: 0.7;
   }
 
@@ -354,7 +354,7 @@
     z-index: -1;
   }
 
-  .fifty-fifty-btn:hover:after {
+  .hover-supported .fifty-fifty-btn:hover:after {
     opacity: 1;
   }
 
