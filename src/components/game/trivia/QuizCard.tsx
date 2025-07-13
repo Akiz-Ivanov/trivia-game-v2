@@ -4,6 +4,7 @@ import { ArrowRight, BarChart2 } from "lucide-react"
 
 import { getPreloadedCategoryBg } from "@/assets/imports.ts"
 import shuffleArray from "@/utils/shuffle.js"
+import insertSoftHyphens from "@/utils/insertSoftHyphens.js"
 import RegularButton from "../../common/RegularButton.js"
 import GameMeta from "./GameMeta.js"
 import TriviaAddons from "./trivia-addons/TriviaAddons.js"
@@ -157,12 +158,13 @@ export default function QuizCard({
 
             {/* ====== Question ====== */}
             <h2
-                className="game-card__question
+                className="
                         text-[clamp(1.3rem,2.5vw,1.75rem)]
-                        font-bold leading-1.4 mt-6 mb-2 text-balance"
+                        font-bold leading-1.4 mt-6 mb-2 text-balance
+                        break-words"
                 id={`question-${questionData.id}`}
             >
-                {questionData.question}
+                {insertSoftHyphens(questionData.question)}
             </h2>
 
             {/* ====== Answers ====== */}

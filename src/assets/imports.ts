@@ -47,7 +47,7 @@ export async function preloadAllCategoryImages() {
     )
 }
 
-//* ====== Get a preloaded image via: ======
+//* ====== Get a preloaded image (url) via: ======
 export function getPreloadedCategoryBg(category: Category): string | null {
     return preloadedImages.get(category) ?? null
 }

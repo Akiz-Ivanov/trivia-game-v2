@@ -108,7 +108,7 @@ const TriviaAddons = ({
                 <RegularButton
                     type="button"
                     onClick={() => handleFiftyFifty(questionData)}
-                    disabled={!!selectedAnswer || isLoading || removedAnswers.length === 2}
+                    disabled={!!selectedAnswer || isLoading || removedAnswers.length > 0}
                     aria-label="Get two incorrect answers"
                     title="Eliminate two wrong answers"
                     className="fifty-fifty-btn main-action
@@ -118,7 +118,8 @@ const TriviaAddons = ({
                         hover:bg-[#ff4fd830] hover:shadow-[0_0_10px_#ff4fd880]
                         active:scale-95 active:shadow-[0_0_8px_rgba(0,195,255,0.2)]
                         focus-visible:ring-2 focus-visible:ring-ring 
-                        focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                        focus-visible:ring-offset-2 focus-visible:ring-offset-background
+                        disabled:opacity-40"
                 >
                     50 / 50
                 </RegularButton>
